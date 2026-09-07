@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Járj Istennel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#EDE6D6; --ink-dim:#B9AF9B; --bg:#1E1A16; --bg-2:#26211C;
+    --gold:#B08D3E; --gold-bright:#D8B15E; --line:#3A332B;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:500; letter-spacing:0.01em;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  nav{padding:26px 0; border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex; justify-content:space-between; align-items:center;}
+  .brand{font-family:'Fraunces',serif; font-size:19px; color:var(--gold-bright);}
+  .nav-link{color:var(--ink-dim); text-decoration:none; font-size:14px; margin-left:22px;}
+  .nav-link:hover{color:var(--ink);}
+
+  .hero{position:relative; padding:80px 0 64px; overflow:hidden; border-bottom:1px solid var(--line);}
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background: radial-gradient(600px 300px at 20% 0%, rgba(176,141,62,0.14), transparent 60%);
+    pointer-events:none;
+  }
+  .kicker{color:var(--ink-dim); font-size:15px; margin-bottom:20px;}
+  .hero h1{font-size:clamp(38px,6.6vw,58px); line-height:1.08; margin-bottom:20px; max-width:14ch;}
+  .hero h1 em{color:var(--gold-bright); font-style:italic;}
+  .hero p.lead{font-size:18px; color:var(--ink-dim); max-width:52ch; margin-bottom:34px;}
+
+  .btn-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .cta{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--gold-bright); color:#1E1A16; font-weight:600; font-size:16px;
+    padding:14px 26px; border-radius:3px; text-decoration:none; border:none;
+  }
+  .cta:hover{background:#E7C071;}
+  .cta.ghost{background:transparent; border:1px solid var(--line); color:var(--ink);}
+  .cta.ghost:hover{border-color:var(--gold);}
+
+  .verseblock{padding:60px 0; border-bottom:1px solid var(--line);}
+  .verse{
+    font-family:'Fraunces',serif; font-style:italic; font-size:clamp(21px,3.2vw,28px);
+    line-height:1.5; border-left:3px solid var(--gold); padding-left:26px;
+  }
+  .verse .ref{display:block; font-family:'Inter',sans-serif; font-style:normal; font-size:14px; color:var(--ink-dim); margin-top:14px;}
+
+  .freebie{padding:72px 0; border-bottom:1px solid var(--line);}
+  .freebie-card{background:var(--bg-2); border:1px solid var(--line); border-radius:6px; padding:40px;}
+  @media (max-width:600px){.freebie-card{padding:26px;}}
+  .tag{display:inline-block; background:rgba(176,141,62,0.16); color:var(--gold-bright); font-size:13px; padding:4px 12px; border-radius:20px; margin-bottom:18px;}
+  .freebie-card h2{font-size:27px; margin-bottom:14px; max-width:20ch;}
+  .freebie-card p{color:var(--ink-dim); font-size:16px; margin-bottom:26px; max-width:50ch;}
+  .signup-form{display:flex; gap:10px; flex-wrap:wrap;}
+  .signup-form input[type="email"]{
+    flex:1; min-width:220px; padding:13px 16px; border-radius:3px; border:1px solid var(--line);
+    background:#1A1613; color:var(--ink); font-size:15px; font-family:'Inter',sans-serif;
+  }
+  .signup-form input::placeholder{color:var(--ink-dim);}
+  .form-note{font-size:12px; color:var(--ink-dim); margin-top:12px;}
+
+  .channel{padding:72px 0; border-bottom:1px solid var(--line);}
+  .channel h2{font-size:28px; margin-bottom:14px; max-width:20ch;}
+  .channel p{color:var(--ink-dim); font-size:16px; margin-bottom:24px; max-width:52ch;}
+
+  .soon{padding:72px 0;}
+  .soon h2{font-size:28px; margin-bottom:14px; max-width:22ch;}
+  .soon p{color:var(--ink-dim); font-size:16px; max-width:54ch; margin-bottom:28px;}
+  .soon-list{list-style:none;}
+  .soon-item{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 0; border-top:1px solid var(--line); color:var(--ink-dim); font-size:15px;
+  }
+  .soon-item:last-child{border-bottom:1px solid var(--line);}
+  .soon-item .badge{font-size:12px; color:var(--gold); border:1px solid var(--line); padding:3px 10px; border-radius:20px;}
+
+  footer{padding:36px 0 48px; color:var(--ink-dim); font-size:13px; text-align:center;}
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <span class="brand">Járj Istennel</span>
+      <div>
+        <a href="#freebie" class="nav-link">Ingyenes anyag</a>
+        <a href="#soon" class="nav-link">Hamarosan</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="kicker">Bibliai elmélkedések — igényes, mély, hétköznapi nyelven</div>
+      <h1>Járj <em>Istennel</em> minden nap</h1>
+      <p class="lead">Rövid videók és elmélkedések a Szentírás alapján — kezdd itt egy ingyenes 3 napos anyaggal az áldásról és az átokról.</p>
+      <div class="btn-row">
+        <a href="#freebie" class="cta">Ingyenes anyag letöltése</a>
+        <a href="#channel" class="cta ghost">YouTube csatorna</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="verseblock">
+    <div class="wrap">
+      <p class="verse">„Áldást és átkot adok ma előtökbe.”
+        <span class="ref">5Mózes 11:26 — Károli-fordítás</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="freebie" id="freebie">
+    <div class="wrap">
+      <div class="freebie-card">
+        <span class="tag">Ingyenes</span>
+        <h2>3 nap az áldás felé</h2>
+        <p>Egy rövid, ingyenes mini-elmélkedés 5Mózes és a Galata levél alapján — napi 5-10 perc, elmélkedő kérdéssel és imádsággal. Add meg az email címed, és azonnal küldjük is a PDF-et.</p>
+        <form class="signup-form" onsubmit="event.preventDefault(); alert('Kösd össze ezt az űrlapot egy email-listaszolgáltatóval (pl. MailerLite), hogy a feliratkozás valóban elmentse a címet és kiküldje a PDF-et.');">
+          <input type="email" placeholder="Az email címed" required>
+          <button type="submit" class="cta">Küldd el ingyen</button>
+        </form>
+        <p class="form-note">Nem küldünk spamet. Bármikor leiratkozhatsz.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="channel" id="channel">
+    <div class="wrap">
+      <h2>Kövess a YouTube-on</h2>
+      <p>Heti rövid tartalmak a Szentírásból — az átok és áldás témájával indulunk, de egyre több területet érintünk majd, ahogy a közösség növekszik.</p>
+      <a href="https://www.youtube.com/@jarjIstennel" class="cta ghost" target="_blank" rel="noopener">Feliratkozás a csatornára →</a>
+    </div>
+  </section>
+
+  <section class="soon" id="soon">
+    <div class="wrap">
+      <h2>Ami hamarosan érkezik</h2>
+      <p>Amint a közösség növekszik, ezen az oldalon jelennek majd meg a mélyebb, teljes e-könyvek és további anyagok.</p>
+      <ul class="soon-list">
+        <li class="soon-item"><span>Áldás Örököse — teljes e-könyv (7 fejezet)</span><span class="badge">Hamarosan</span></li>
+        <li class="soon-item"><span>Következő téma: bocsánat és szabadulás</span><span class="badge">Tervben</span></li>
+        <li class="soon-item"><span>Csoportos bibliaköri anyagok</span><span class="badge">Tervben</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">Járj Istennel — készült szeretettel, a Szentírás alapján</div>
+  </footer>
+
+</body>
+</html>
