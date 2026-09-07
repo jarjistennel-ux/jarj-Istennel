@@ -122,10 +122,22 @@
         <span class="tag">Ingyenes</span>
         <h2>3 nap az áldás felé</h2>
         <p>Egy rövid, ingyenes mini-elmélkedés 5Mózes és a Galata levél alapján — napi 5-10 perc, elmélkedő kérdéssel és imádsággal. Add meg az email címed, és azonnal küldjük is a PDF-et.</p>
-        <form class="signup-form" onsubmit="event.preventDefault(); alert('Kösd össze ezt az űrlapot egy email-listaszolgáltatóval (pl. MailerLite), hogy a feliratkozás valóban elmentse a címet és kiküldje a PDF-et.');">
-          <input type="email" placeholder="Az email címed" required>
-          <button type="submit" class="cta">Küldd el ingyen</button>
-        </form>
+        <form class="signup-form"
+      action="https://assets.mailerlite.com/jsonp/2619882/forms/197952119721952438/subscribe"
+      method="post"
+      target="_blank">
+
+  <input type="email"
+         name="fields[email]"
+         placeholder="Az email címed"
+         autocomplete="email"
+         required>
+
+  <input type="hidden" name="ml-submit" value="1">
+  <input type="hidden" name="anticsrf" value="true">
+
+  <button type="submit" class="cta">Küldd el ingyen</button>
+</form>
         <p class="form-note">Nem küldünk spamet. Bármikor leiratkozhatsz.</p>
       </div>
     </div>
